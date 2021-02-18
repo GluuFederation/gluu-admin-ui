@@ -13,9 +13,12 @@ const BASE_PATH = process.env.BASE_PATH || "/";
 
 module.exports = {
   name: "client",
-  devtool: "cheap-eval-source-map",
+  devtool: "eval",
   target: "web",
   mode: "development",
+  optimization: {
+    moduleIds: 'named',
+  },
   entry: {
     app: [path.join(config.srcDir, "index.js")]
   },
@@ -46,7 +49,6 @@ module.exports = {
       "process.env.BASE_PATH": JSON.stringify(BASE_PATH),
       "process.env.API_BASE_URL": JSON.stringify(process.env.API_BASE_URL)
     }),
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new ExtractCssChunks()
   ],

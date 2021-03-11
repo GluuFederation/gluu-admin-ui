@@ -8,7 +8,7 @@ import {
   CardBody,
 } from '../../../components'
 import GluuLabel from '../Gluu/GluuLabel'
-function CacheRedis({ config }) {
+function CacheRedis({ config, formik }) {
   return (
     <Card>
       <CardBody>
@@ -18,6 +18,7 @@ function CacheRedis({ config }) {
             <Input
               id="redisProviderType"
               name="redisProviderType"
+              onChange={formik.handleChange}
               defaultValue={config.redisProviderType}
             />
           </Col>
@@ -33,6 +34,7 @@ function CacheRedis({ config }) {
               type="checkbox"
               name="useSSL"
               id="useSSL"
+              onChange={formik.handleChange}
               defaultChecked={config.useSSL}
             />
           </Col>
@@ -44,6 +46,7 @@ function CacheRedis({ config }) {
               id="defaultPutExpiration"
               name="defaultPutExpiration"
               type="number"
+              onChange={formik.handleChange}
               defaultValue={config.defaultPutExpiration}
             />
           </Col>
@@ -53,6 +56,7 @@ function CacheRedis({ config }) {
               id="maxRetryAttempts"
               name="maxRetryAttempts"
               type="number"
+              onChange={formik.handleChange}
               defaultValue={config.maxRetryAttempts}
             />
           </Col>
@@ -62,6 +66,7 @@ function CacheRedis({ config }) {
               id="soTimeout"
               name="soTimeout"
               type="number"
+              onChange={formik.handleChange}
               defaultValue={config.soTimeout}
             />
           </Col>
@@ -73,6 +78,7 @@ function CacheRedis({ config }) {
               id="maxIdleConnections"
               name="maxIdleConnections"
               type="number"
+              onChange={formik.handleChange}
               defaultValue={config.maxIdleConnections}
             />
           </Col>
@@ -82,6 +88,7 @@ function CacheRedis({ config }) {
               id="maxTotalConnections"
               name="maxTotalConnections"
               type="number"
+              onChange={formik.handleChange}
               defaultValue={config.maxTotalConnections}
             />
           </Col>
@@ -91,6 +98,7 @@ function CacheRedis({ config }) {
               id="connectionTimeout"
               name="connectionTimeout"
               type="number"
+              onChange={formik.handleChange}
               defaultValue={config.connectionTimeout}
             />
           </Col>

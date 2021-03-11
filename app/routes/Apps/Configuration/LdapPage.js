@@ -14,6 +14,7 @@ import { connect } from 'react-redux'
 import { getLdapConfig, editLdap } from '../../../redux/actions/LdapActions'
 
 function LdapPage({ ldap, loading, dispatch }) {
+  
   useEffect(() => {
     // dispatch(editLdap(JSON.stringify({
     //   configId: 'auth_ldap_server',

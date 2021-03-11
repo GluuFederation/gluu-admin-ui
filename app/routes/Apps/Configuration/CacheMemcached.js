@@ -8,7 +8,7 @@ import {
   CardBody,
 } from './../../../components'
 import GluuLabel from '../Gluu/GluuLabel'
-function CacheMemcached({ config }) {
+function CacheMemcached({ config, formik }) {
   return (
     <Card>
       <CardBody>
@@ -22,7 +22,8 @@ function CacheMemcached({ config }) {
             <Input
               name="connectionFactoryType"
               id="connectionFactoryType"
-              defaultChecked={config.connectionFactoryType}
+              defaultValue={config.connectionFactoryType}
+              onChange={formik.handleChange}
             />
           </Col>
         </FormGroup>
@@ -34,6 +35,7 @@ function CacheMemcached({ config }) {
               name="maxOperationQueueLength"
               type="number"
               defaultValue={config.maxOperationQueueLength}
+              onChange={formik.handleChange}
             />
           </Col>
           <GluuLabel label="Buffer Size" size={2} />
@@ -43,15 +45,17 @@ function CacheMemcached({ config }) {
               name="bufferSize"
               type="number"
               defaultValue={config.bufferSize}
+              onChange={formik.handleChange}
             />
           </Col>
           <GluuLabel label="Default Put Expiration" size={2} />
           <Col sm={2}>
             <Input
               type="number"
-              name="defaultPutExpiration"
-              id="defaultPutExpiration"
+              name="memDefaultPutExpiration"
+              id="memDefaultPutExpiration"
               defaultValue={config.defaultPutExpiration}
+              onChange={formik.handleChange}
             />
           </Col>
         </FormGroup>

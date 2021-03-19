@@ -6,7 +6,7 @@ import {
   } from '../actions/types'
   
   const INIT_STATE = {
-    acr: {},
+    acrs: {},
     loading: false,
   }
   
@@ -39,7 +39,7 @@ import {
       case PUT_ACRS_RESPONSE:
         return {
           ...state,
-          acrs: state.acrs,
+          acrs: action.payload.data,
           loading: false,
         }
       default:

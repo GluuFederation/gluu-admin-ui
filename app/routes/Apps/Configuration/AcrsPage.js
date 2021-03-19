@@ -21,7 +21,7 @@ function AcrsPage({ acrs, dispatch, loading }) {
     dispatch(getAcrsConfig())
   }, [])
   const initialValues = {
-    defaultAcr: acrs ? acrs.defaultAcr : null
+    defaultAcr: acrs.defaultAcr
   }
   return (
     <React.Fragment>
@@ -36,6 +36,7 @@ function AcrsPage({ acrs, dispatch, loading }) {
         <Card>
           <CardBody>
           <Formik
+            enableReinitialize
                 initialValues={initialValues}
                 onSubmit={(values, { setSubmitting }) => {
                   const opts = {}

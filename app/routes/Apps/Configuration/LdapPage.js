@@ -15,31 +15,30 @@ import { getLdapConfig, editLdap } from '../../../redux/actions/LdapActions'
 
 function LdapPage({ ldap, loading, dispatch }) {
 
-  const [initialValues, setInitialValues] = useState()
+  const [initialValues, setInitialValues] = useState({})
 
   useEffect(() => {
-    // dispatch(editLdap(
-    //   {
-    //     configId: 'auth_ldap_server',
-    //     bindDN: 'cn=directory manager',
-    //     bindPassword: 'v7JHsULopbXBz9SEtgx1iQ==',
-    //     servers: ['localhost:1636'],
-    //     maxConnections: 1000,
-    //     useSSL: true,
-    //     baseDNs: ['ou=people,o=jans'],
-    //     primaryKey: 'uid',
-    //     localPrimaryKey: 'uid',
-    //     useAnonymousBind: false,
-    //     enabled: false,
-    //     version: 0,
-    //     level: 0,
-    //   }))
     dispatch(getLdapConfig())
-    console.log(ldap)
+   /*  dispatch(editLdap({
+      configId: 'auth_ldap_server',
+      bindDN: 'cn=directory manager',
+      bindPassword: 'v7JHsULopbXBz9SEtgx1iQ==',
+      servers: ['localhost:1636'],
+      maxConnections: 1000,
+      useSSL: true,
+      baseDNs: ['ou=people,o=jans'],
+      primaryKey: 'uid',
+      localPrimaryKey: 'uid',
+      useAnonymousBind: false,
+      enabled: false,
+      version: 0,
+      level: 0,
+    })) */
+    
   }, [])
 
   useEffect(() => {
-    if(ldap){
+    if(ldap.length){
       setInitialValues({
         configId: ldap[0].configId,
         bindDN: ldap[0].bindDN,
@@ -58,6 +57,9 @@ function LdapPage({ ldap, loading, dispatch }) {
     }
   }, [ldap])
 
+  console.log("Initial values: ", initialValues);
+  console.log("Ldap : ", ldap )
+
 
   return (
     <React.Fragment>
@@ -69,9 +71,10 @@ function LdapPage({ ldap, loading, dispatch }) {
           renderChildren={true}
           message={'Performing the request, please wait!'}
         >
+          {
+              Object.keys(initialValues).length && ldap.length ?
           <Card>
-            {
-              initialValues && <CardBody>
+             <CardBody>
               <Formik
                 initialValues={initialValues}
                 onSubmit={(values) => {
@@ -80,17 +83,17 @@ function LdapPage({ ldap, loading, dispatch }) {
               >
                 {(formik) => (
                   <Form onSubmit={formik.handleSubmit}>
-                    {ldap.length ? ldap.map((ldap, index) => (
-                      <LdapItem key={index} ldap={ldap} formik={formik} index={index}></LdapItem>
-                    )) : null}
+                    { ldap.map((dap, index) => (
+                      <LdapItem key={index} ldap={dap} formik={formik} index={index}></LdapItem>
+                    ))}
                     <GluuFooter />
                   </Form>
                 )}
               </Formik>
 
-            </CardBody>
+            </CardBody> 
+          </Card> : null
             }
-          </Card>
         </BlockUi>
       </Container>
     </React.Fragment>

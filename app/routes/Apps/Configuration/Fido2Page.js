@@ -34,7 +34,7 @@ function Fido2Page({ fido, loading, permissions, dispatch }) {
     dispatch(getFidoConfig())
   }, [])
   const [init, setInit] = useState(false)
-  
+
 
   console.log('**** Fido Page - fido = ' + JSON.stringify(fido))
   const requested_parties = 'requested_parties'
@@ -209,8 +209,7 @@ function Fido2Page({ fido, loading, permissions, dispatch }) {
                             <option value="ERROR">ERROR</option>
                             <option value="FATAL">FATAL</option>
                             <option value="OFF">OFF</option>
-			}
-			/>
+			      />
 			</CustomInput>
                         </InputGroup>
                       </Col>
@@ -231,7 +230,6 @@ function Fido2Page({ fido, loading, permissions, dispatch }) {
                           >
                             <option value="text">text</option>
                             <option value="json">json</option>
-}
 />
 </CustomInput>
                         </InputGroup>

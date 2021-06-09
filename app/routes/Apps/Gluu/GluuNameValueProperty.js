@@ -32,7 +32,7 @@ class GluuNameValueProperty extends React.Component {
 	createUI() {
 		return this.state.dataArr.map((element, index) => (
 			<div key={index}>
-				<FormGroup row>
+				<FormGroup row style={{marginLeft: 20}}>
 					<GluuLabel label={this.state.keyLabel} />
 					<Col sm={9}>
 						<Input
@@ -54,8 +54,13 @@ class GluuNameValueProperty extends React.Component {
 							onChange={this.handleChange.bind(this, index)}
 						/>
 					</Col>
-					<Col sm={3}>
-						<input type='button' value='remove' onClick={this.removeClick.bind(this, index)} />
+					<Col sm={3} style={{marginTop: 20}}>
+						<input 
+							type='button' 
+							value='Remove' 
+							onClick={this.removeClick.bind(this, index)} 
+							style={{background: '#03a96d', color: '#fff', border: 'none', padding: 5, borderRadius: 5}}
+						/>
 					</Col>
 				</FormGroup>
 					
@@ -90,7 +95,12 @@ class GluuNameValueProperty extends React.Component {
 			<Row>
 				<GluuLabel label={this.state.nameValueLabel} size={9} />
 
-				<input type='button' value='Add more' onClick={this.addClick.bind(this)} />
+				<input 
+					type='button' 
+					value='Add more'
+					onClick={this.addClick.bind(this)} 
+					style={{background: '#03a96d', color: '#fff', border: 'none', padding: 5, borderRadius: 5}}
+				/>
 
 				{this.createUI()}
 			</Row>

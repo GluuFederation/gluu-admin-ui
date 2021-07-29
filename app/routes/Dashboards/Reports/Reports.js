@@ -185,10 +185,10 @@ function Reports({ attributes, clients, scopes, scripts, dispatch }) {
 }
 const mapStateToProps = (state) => {
   return {
-    attributes: state.attributeReducer.items,
-    clients: state.oidcReducer.items,
-    scopes: state.scopeReducer.items,
-    scripts: state.customScriptReducer.items,
+    attributes: [],
+    clients: [],
+    scopes: [],
+    scripts: [],
   }
 }
 

@@ -1,0 +1,1 @@
+export const GET_MY_PLUGIN_DATA = 'GET_MY_PLUGIN_DATA'

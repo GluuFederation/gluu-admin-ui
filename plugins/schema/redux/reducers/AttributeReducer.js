@@ -18,7 +18,7 @@ const INIT_STATE = {
   loading: false,
 }
 
-const reducerName = 'attributeReducer';
+const reducerName = 'attributeReducer'
 
 export default function attributeReducer(state = INIT_STATE, action) {
   switch (action.type) {
@@ -55,7 +55,7 @@ export default function attributeReducer(state = INIT_STATE, action) {
       if (action.payload.data) {
         return {
           ...state,
-          items: [...state.items, action.payload.data],
+          items: [action.payload.data, ...state.items],
           loading: false,
         }
       } else {
@@ -74,7 +74,7 @@ export default function attributeReducer(state = INIT_STATE, action) {
       if (action.payload.data) {
         return {
           ...state,
-          items: [...state.items],
+          items: [action.payload.data, ...state.items],
           loading: false,
         }
       } else {

@@ -57,7 +57,7 @@ export default function oidcReducer(state = INIT_STATE, action) {
       if (action.payload.data) {
         return {
           ...state,
-          items: [...state.items],
+          items: [action.payload.data, ...state.items],
           loading: false,
         }
       } else {
@@ -76,7 +76,7 @@ export default function oidcReducer(state = INIT_STATE, action) {
       if (action.payload.data) {
         return {
           ...state,
-          items: [...state.items],
+          items: [action.payload.data, ...state.items],
           loading: false,
         }
       } else {

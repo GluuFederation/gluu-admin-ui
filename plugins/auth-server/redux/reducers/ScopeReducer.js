@@ -15,14 +15,14 @@ import {
   GET_SCOPE_BY_PATTERN_RESPONSE,
   SEARCH_SCOPES,
 } from '../actions/types'
-import reducerRegistry from '../../../../app/redux/reducers/ReducerRegistry';
+import reducerRegistry from '../../../../app/redux/reducers/ReducerRegistry'
 const INIT_STATE = {
   items: [],
   item: {},
   loading: false,
 }
 
-const reducerName = 'scopeReducer';
+const reducerName = 'scopeReducer'
 
 export default function scopeReducer(state = INIT_STATE, action) {
   switch (action.type) {
@@ -97,7 +97,7 @@ export default function scopeReducer(state = INIT_STATE, action) {
       if (action.payload.data) {
         return {
           ...state,
-          items: [...state.items],
+          items: [action.payload.data, ...state.items],
           loading: false,
         }
       } else {
@@ -117,7 +117,7 @@ export default function scopeReducer(state = INIT_STATE, action) {
       if (action.payload.data) {
         return {
           ...state,
-          items: [...state.items],
+          items: [action.payload.data, ...state.items],
           loading: false,
         }
       } else {
@@ -164,4 +164,4 @@ export default function scopeReducer(state = INIT_STATE, action) {
       }
   }
 }
-reducerRegistry.register(reducerName, scopeReducer);
+reducerRegistry.register(reducerName, scopeReducer)

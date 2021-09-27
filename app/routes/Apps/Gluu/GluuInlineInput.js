@@ -41,7 +41,7 @@ function GluuInlineInput({
   const [show, setShow] = useState(false)
   const [correctValue, setCorrectValue] = useState([])
   const onValueChanged = () => {
-    setShow(true)
+    document.getElementById('inline-input-buttons'+name).style.display='block'
   }
   const handleTypeAheadChange = (selectedOptions) => {
     setCorrectValue(selectedOptions)
@@ -55,13 +55,14 @@ function GluuInlineInput({
     } else {
       patch[VALUE] = document.getElementById(name).value
     }
+    console.log('=====', patch)
     patch['op'] = 'replace'
     handler(patch)
-    setShow(false)
+    document.getElementById('inline-input-buttons'+name).style.display='none'
   }
   const onCancel = () => {
     setCorrectValue([])
-    setShow(false)
+    document.getElementById('inline-input-buttons'+name).style.display='none'
   }
   return (
     <FormGroup row>
@@ -111,16 +112,14 @@ function GluuInlineInput({
         </FormGroup>
       </Col>
       <Col sm={2}>
-        {show && (
-          <div>
-            <Button color="primary" size="sm" onClick={onAccept}>
-              <i className="fa fa-check mr-2"></i>
-            </Button>{' '}
-            <Button color="danger" size="sm" onClick={onCancel}>
-              <i className="fa fa-times mr-2"></i>
-            </Button>
-          </div>
-        )}
+        <div id={'inline-input-buttons'+name} style={{display:"none"}}>
+          <Button color="primary" size="sm" onClick={onAccept}>
+            <i className="fa fa-check mr-2"></i>
+          </Button>{' '}
+          <Button color="danger" size="sm" onClick={onCancel}>
+            <i className="fa fa-times mr-2"></i>
+          </Button>
+        </div>
       </Col>
     </FormGroup>
   )

@@ -1,6 +1,10 @@
-import { GET_MY_PLUGIN_DATA } from './types'
+import { GET_MY_PLUGIN_DATA, GET_MY_PLUGIN_DATA_RESPONSE } from './types'
 
-export const getMyPluginData = (options) => ({
+export const getMyPluginData = () => ({
   type: GET_MY_PLUGIN_DATA,
-  payload: { options },
+})
+
+export const getMyPluginDataResponse = (data) => ({
+  type: GET_MY_PLUGIN_DATA_RESPONSE,
+  payload: { data },
 })

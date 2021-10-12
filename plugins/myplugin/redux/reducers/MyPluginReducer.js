@@ -1,4 +1,4 @@
-import { GET_MY_PLUGIN_DATA } from '../actions/types'
+import { GET_MY_PLUGIN_DATA, GET_MY_PLUGIN_DATA_RESPONSE } from '../actions/types'
 
 const INIT_STATE = {
   data: [],
@@ -13,6 +13,13 @@ export default function myPluginReducer(state = INIT_STATE, action) {
       return {
         ...state,
         loading: true,
+      }
+
+    case GET_MY_PLUGIN_DATA_RESPONSE:
+      return {
+        ...state,
+        loading: false,
+        data: action.payload.data,
       }
 
     default:

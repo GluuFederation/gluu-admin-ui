@@ -38,6 +38,9 @@ module.exports = {
     alias: {
       path: require.resolve('path-browserify'),
     },
+    fallback: {
+      "fs": false
+    },
   },
   plugins: [
     new CircularDependencyPlugin({

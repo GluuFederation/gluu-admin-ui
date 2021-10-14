@@ -9,15 +9,6 @@
     "admin-ui",
     "gluu"
   ],
-  "jest": {
-    "verbose": true,
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/build/",
-      "<rootDir>/node_modules/",
-      "<rootDir>/jans_config_api/",
-      "/jans_config_api"
-    ]
-  },
   "homepage": "/admin",
   "bugs": {
     "url": "https://github.com/GluuFederation/gluu-admin-ui/issues",
@@ -54,6 +45,7 @@
     "@babel/preset-react": "^7.12.10",
     "@webpack-cli/serve": "^1.5.2",
     "autoprefixer": "^10.3.1",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
@@ -89,6 +81,7 @@
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/polyfill": "^7.4.4",
+    "@babel/preset-flow": "^7.14.5",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
@@ -98,6 +91,7 @@
     "ag-grid-community": "^21.0.1",
     "ag-grid-react": "^21.0.1",
     "axios": "^0.21.0",
+    "babel-plugin-styled-components": "^1.13.2",
     "bootstrap": "^4.5.3",
     "dateformat": "^5.0.1",
     "dotenv": "^8.2.0",
@@ -146,6 +140,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-spinners": "^0.11.0",
+    "react-test-renderer": "^17.0.2",
     "react-text-mask": "^5.4.3",
     "react-toastify": "^5.5.0",
     "react-toggle": "^4.1.2",

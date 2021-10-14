@@ -7,5 +7,9 @@ module.exports = {
   transform: {
     "^.+\\.[t|j]sx?$": "babel-jest"
   },
-  testPathIgnorePatterns: ['\\.snap$', '<rootDir>/node_modules/']
+  transformIgnorePatterns: ["<rootDir>/node_modules/"],
+  // testPathIgnorePatterns: ['\\.snap$', '<rootDir>/node_modules/'],
+  globals: {
+    "window": {}
+  }
 }

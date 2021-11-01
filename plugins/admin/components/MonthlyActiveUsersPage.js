@@ -170,7 +170,6 @@ function MonthlyActiveUsersPage({ stat, permissions, loading, dispatch }) {
         </div>
       )
     }
-
     return null
   }
   const makeText = (m) => {

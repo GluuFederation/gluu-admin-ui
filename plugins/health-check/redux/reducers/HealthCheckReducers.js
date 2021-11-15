@@ -2,15 +2,12 @@
  * HealthCheck Reducers
  */
 import { GET_HEALTH_CHECK, GET_HEALTH_CHECK_RESPONSE, RESET } from '../types'
-/**
- * initial plugin state
- */
 const INIT_STATE = {
   components: [],
   loading: false,
 }
 
-export default function healthCheckReducer(state = INIT_STATE, action)  {
+export default function healthCheckReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_HEALTH_CHECK:
       return {

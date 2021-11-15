@@ -19,7 +19,7 @@ const INIT_STATE = {
   testStatus: false,
 }
 
-export default function ldapReducer(state = INIT_STATE, action) {
+export default function ldapReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_LDAP:
       return {

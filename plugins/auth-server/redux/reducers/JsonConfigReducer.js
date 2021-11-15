@@ -12,7 +12,7 @@ const INIT_STATE = {
 
 const reducerName = 'jsonConfigReducer'
 
-export default function jsonConfigReducer(state = INIT_STATE, action) {
+export default function jsonConfigReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_JSON_CONFIG:
       return {

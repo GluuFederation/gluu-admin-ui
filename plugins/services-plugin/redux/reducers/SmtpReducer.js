@@ -16,9 +16,9 @@ const INIT_STATE = {
   testStatus: {},
 }
 
-const reducerName = 'smtpReducer';
+const reducerName = 'smtpReducer'
 
-export default function smtpReducer(state = INIT_STATE, action) {
+export default function smtpReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_SMTP:
       return {

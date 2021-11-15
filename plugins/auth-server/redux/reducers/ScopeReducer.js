@@ -15,16 +15,16 @@ import {
   GET_SCOPE_BY_PATTERN_RESPONSE,
   SEARCH_SCOPES,
 } from '../actions/types'
-import reducerRegistry from '../../../../app/redux/reducers/ReducerRegistry';
+import reducerRegistry from '../../../../app/redux/reducers/ReducerRegistry'
 const INIT_STATE = {
   items: [],
   item: {},
   loading: false,
 }
 
-const reducerName = 'scopeReducer';
+const reducerName = 'scopeReducer'
 
-export default function scopeReducer(state = INIT_STATE, action) {
+export default function scopeReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_SCOPES:
       return {
@@ -164,4 +164,4 @@ export default function scopeReducer(state = INIT_STATE, action) {
       }
   }
 }
-reducerRegistry.register(reducerName, scopeReducer);
+reducerRegistry.register(reducerName, scopeReducer)

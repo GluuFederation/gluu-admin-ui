@@ -18,9 +18,9 @@ const INIT_STATE = {
   loading: false,
 }
 
-const reducerName = 'attributeReducer';
+const reducerName = 'attributeReducer'
 
-export default function attributeReducer(state = INIT_STATE, action) {
+export default function attributeReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_ATTRIBUTES:
       return {

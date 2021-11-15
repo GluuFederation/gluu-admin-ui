@@ -18,7 +18,7 @@ const INIT_STATE = {
 
 const reducerName = 'initReducer'
 
-export default function initReducer(state = INIT_STATE, action) {
+export default function initReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_SCRIPTS_FOR_STAT:
       return {

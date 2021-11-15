@@ -8,7 +8,7 @@ const INIT_STATE = {
 
 const reducerName = 'jwksReducer'
 
-export default function jwksReducer(state = INIT_STATE, action) {
+export default function jwksReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_JWKS:
       return {

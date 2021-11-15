@@ -8,9 +8,9 @@ const INIT_STATE = {
   loading: false,
 }
 
-const reducerName = 'persistenceTypeReducer';
+const reducerName = 'persistenceTypeReducer'
 
-export default function persistenceTypeReducer(state = INIT_STATE, action) {
+export default function persistenceTypeReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_PERSISTENCE_TYPE:
       return {
@@ -35,4 +35,4 @@ export default function persistenceTypeReducer(state = INIT_STATE, action) {
         ...state,
       }
   }
-}  
+}

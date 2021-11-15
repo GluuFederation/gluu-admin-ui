@@ -13,9 +13,9 @@ const INIT_STATE = {
   loading: false,
 }
 
-const reducerName = 'couchbaseReducer';
+const reducerName = 'couchbaseReducer'
 
-export default function couchbaseReducer(state = INIT_STATE, action) {
+export default function couchbaseReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_COUCHBASE:
       return {

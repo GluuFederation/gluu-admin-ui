@@ -1,4 +1,9 @@
-import { GET_LICENSE_DETAILS, GET_LICENSE_DETAILS_RESPONSE, UPDATE_LICENSE_DETAILS, UPDATE_LICENSE_DETAILS_RESPONSE } from '../actions/types'
+import {
+  GET_LICENSE_DETAILS,
+  GET_LICENSE_DETAILS_RESPONSE,
+  UPDATE_LICENSE_DETAILS,
+  UPDATE_LICENSE_DETAILS_RESPONSE,
+} from '../actions/types'
 import reducerRegistry from '../../../../app/redux/reducers/ReducerRegistry'
 const INIT_STATE = {
   item: {},
@@ -7,7 +12,7 @@ const INIT_STATE = {
 
 const reducerName = 'licenseDetailsReducer'
 
-export default function licenseDetailsReducer(state = INIT_STATE, action) {
+export default function licenseDetailsReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_LICENSE_DETAILS:
       return {

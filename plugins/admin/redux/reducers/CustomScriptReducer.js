@@ -20,7 +20,7 @@ const INIT_STATE = {
 
 const reducerName = 'customScriptReducer'
 
-export default function customScriptReducer(state = INIT_STATE, action) {
+export default function customScriptReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_CUSTOM_SCRIPT:
       return {

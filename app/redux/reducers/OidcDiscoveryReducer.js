@@ -11,7 +11,7 @@ import {
   
   const reducerName = 'oidcDiscoveryReducer';
   
-  export default function oidcDiscoveryReducer(state = INIT_STATE, action) {
+  export default function oidcDiscoveryReducer(action, state = INIT_STATE, ) {
     switch (action.type) {
       case GET_OIDC_DISCOVERY:
         return {

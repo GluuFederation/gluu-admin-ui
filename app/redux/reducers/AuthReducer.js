@@ -29,7 +29,7 @@ const INIT_STATE = {
 
 const reducerName = 'authReducer'
 
-export default function authReducer(state = INIT_STATE, action) {
+export default function authReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_USER_LOCATION:
       return {

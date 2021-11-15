@@ -22,7 +22,7 @@ const INIT_STATE = {
 
 const reducerName = 'oidcReducer'
 
-export default function oidcReducer(state = INIT_STATE, action) {
+export default function oidcReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_OPENID_CLIENTS:
       return {

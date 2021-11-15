@@ -14,7 +14,7 @@ const INIT_STATE = {
 
 const reducerName = 'licenseReducer';
 
-export default function licenseReducer(state = INIT_STATE, action) {
+export default function licenseReducer( action, state = INIT_STATE,) {
   switch (action.type) {
     case CHECK_FOR_VALID_LICENSE:
       return {

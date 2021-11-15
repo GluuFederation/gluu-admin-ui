@@ -7,7 +7,7 @@ const INIT_STATE = {
 
 const reducerName = 'mauReducer'
 
-export default function mauReducer(state = INIT_STATE, action) {
+export default function mauReducer(action, state = INIT_STATE) {
   switch (action.type) {
     case GET_MAU:
       return {

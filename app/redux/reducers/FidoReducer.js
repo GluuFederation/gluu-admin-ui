@@ -13,7 +13,7 @@ const INIT_STATE = {
 
 const reducerName = 'fidoReducer';
 
-export default function fidoReducer(state = INIT_STATE, action) {
+export default function fidoReducer(action ,state = INIT_STATE) {
   switch (action.type) {
     case GET_FIDO:
       return {

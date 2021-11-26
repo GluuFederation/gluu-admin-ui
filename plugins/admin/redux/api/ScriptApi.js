@@ -21,17 +21,17 @@ export default class ScriptApi {
     })
   }
 
-  addCustomScript = (data) => {
+  addCustomScript = (aData) => {
     return new Promise((resolve, reject) => {
-      this.api.postConfigScripts(data, (error, data) => {
+      this.api.postConfigScripts(aData, (error, data) => {
         this.handleResponse(error, reject, resolve, data)
       })
     })
   }
 
-  editCustomScript = (data) => {
+  editCustomScript = (theData) => {
     return new Promise((resolve, reject) => {
-      this.api.putConfigScripts(data, (error, data) => {
+      this.api.putConfigScripts(theData, (error, data) => {
         this.handleResponse(error, reject, resolve, data)
       })
     })

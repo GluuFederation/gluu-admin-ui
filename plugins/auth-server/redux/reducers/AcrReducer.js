@@ -16,10 +16,7 @@ const reducerName = 'acrReducer'
 export default function acrReducer(state = INIT_STATE, action) {
   switch (action.type) {
     case GET_ACRS:
-      return {
-        ...state,
-        loading: true,
-      }
+      return handleLoading()
     case GET_ACRS_RESPONSE:
       if (action.payload.data) {
         return {
@@ -32,10 +29,7 @@ export default function acrReducer(state = INIT_STATE, action) {
       }
 
     case PUT_ACRS:
-      return {
-        ...state,
-        loading: true,
-      }
+      return handleLoading()
     case PUT_ACRS_RESPONSE:
       if (action.payload.data) {
         return {
@@ -54,6 +48,13 @@ export default function acrReducer(state = INIT_STATE, action) {
     return {
       ...state,
       loading: false,
+    }
+  }
+
+  function handleLoading() {
+    return {
+      ...state,
+      loading: true,
     }
   }
 }

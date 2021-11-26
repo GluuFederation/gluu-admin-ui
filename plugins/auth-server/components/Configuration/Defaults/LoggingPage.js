@@ -109,9 +109,9 @@ function LoggingPage({ logging, dispatch, permissions, loading }) {
                       }}
                     >
                       <option value="">{t('actions.choose')}...</option>
-                      {logLayouts.map((item, key) => (
-                        <option value={item} key={key}>
-                          {item}
+                      {logLayouts.map((candidate, key) => (
+                        <option value={candidate} key={key}>
+                          {candidate}
                         </option>
                       ))}
                     </CustomInput>

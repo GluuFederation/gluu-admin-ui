@@ -86,7 +86,7 @@ function ClientListPage({ clients, permissions, scopes, loading, dispatch }) {
         id: 'editClient' + rowData.inum,
       },
       tooltip: `${t('messages.edit_client')}`,
-      onClick: (event, rowData) => handleGoToClientEditPage(rowData, false),
+      onClick: (event, rowD) => handleGoToClientEditPage(rowD, false),
       disabled: false,
     }))
   }
@@ -103,7 +103,9 @@ function ClientListPage({ clients, permissions, scopes, loading, dispatch }) {
       tooltip: `${t('messages.advanced_search')}`,
       iconProps: { color: 'primary' },
       isFreeAction: true,
-      onClick: () => {},
+      onClick: () => {
+        console.log('============')
+      },
     })
   }
   if (hasPermission(permissions, CLIENT_READ)) {
@@ -127,7 +129,7 @@ function ClientListPage({ clients, permissions, scopes, loading, dispatch }) {
         id: 'viewClient' + rowData.inum,
       },
       tooltip: `${t('messages.view_client_details')}`,
-      onClick: (event, rowData) => handleGoToClientEditPage(rowData, true),
+      onClick: (event, aRow) => handleGoToClientEditPage(aRow, true),
       disabled: false,
     }))
   }
@@ -141,7 +143,7 @@ function ClientListPage({ clients, permissions, scopes, loading, dispatch }) {
       tooltip: rowData.deletable
         ? `${t('messages.delete_client')}`
         : `${t('messages.not_deletable_client')}`,
-      onClick: (event, rowData) => handleClientDelete(rowData),
+      onClick: (event, candidateData) => handleClientDelete(candidateData),
       disabled: false,
     }))
   }

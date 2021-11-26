@@ -1,4 +1,9 @@
-import { GET_LICENSE_DETAILS, GET_LICENSE_DETAILS_RESPONSE, UPDATE_LICENSE_DETAILS, UPDATE_LICENSE_DETAILS_RESPONSE } from '../actions/types'
+import {
+  GET_LICENSE_DETAILS,
+  GET_LICENSE_DETAILS_RESPONSE,
+  UPDATE_LICENSE_DETAILS,
+  UPDATE_LICENSE_DETAILS_RESPONSE,
+} from '../actions/types'
 import reducerRegistry from '../../../../app/redux/reducers/ReducerRegistry'
 const INIT_STATE = {
   item: {},
@@ -10,10 +15,7 @@ const reducerName = 'licenseDetailsReducer'
 export default function licenseDetailsReducer(state = INIT_STATE, action) {
   switch (action.type) {
     case GET_LICENSE_DETAILS:
-      return {
-        ...state,
-        loading: true,
-      }
+      return handleLoading()
     case GET_LICENSE_DETAILS_RESPONSE:
       if (action.payload.data) {
         return {
@@ -22,16 +24,10 @@ export default function licenseDetailsReducer(state = INIT_STATE, action) {
           loading: false,
         }
       } else {
-        return {
-          ...state,
-          loading: false,
-        }
+        return handleDefault()
       }
     case UPDATE_LICENSE_DETAILS:
-      return {
-        ...state,
-        loading: true,
-      }
+      return handleLoading()
     case UPDATE_LICENSE_DETAILS_RESPONSE:
       if (action.payload.data) {
         return {
@@ -40,15 +36,24 @@ export default function licenseDetailsReducer(state = INIT_STATE, action) {
           loading: false,
         }
       } else {
-        return {
-          ...state,
-          loading: false,
-        }
+        return handleLoading()
       }
     default:
-      return {
-        ...state,
-      }
+      return handleDefault()
+  }
+
+  function handleDefault() {
+    return {
+      ...state,
+      loading: false,
+    }
+  }
+
+  function handleLoading() {
+    return {
+      ...state,
+      loading: false,
+    }
   }
 }
 reducerRegistry.register(reducerName, licenseDetailsReducer)

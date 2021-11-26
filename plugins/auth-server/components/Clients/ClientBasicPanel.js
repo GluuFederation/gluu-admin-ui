@@ -48,11 +48,11 @@ const ClientBasicPanel = ({ client, scopes, formik }) => {
     setExpirable(!expirable)
   }
 
-  function getScopeMapping(exitingScopes, scopes) {
+  function getScopeMapping(exitingScopes, allScopes) {
     if (!exitingScopes) {
       exitingScopes = []
     }
-    return scopes.filter((item) => exitingScopes.includes(item.dn))
+    return allScopes.filter((item) => exitingScopes.includes(item.dn))
   }
 
   function uriValidator(uri) {

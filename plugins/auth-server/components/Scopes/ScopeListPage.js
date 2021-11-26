@@ -89,7 +89,7 @@ function ScopeListPage({ scopes, permissions, loading, dispatch }) {
         id: 'editScope' + rowData.inum,
       },
       tooltip: `${t('messages.edit_scope')}`,
-      onClick: (event, rowData) => handleGoToScopeEditPage(rowData),
+      onClick: (event, rowD) => handleGoToScopeEditPage(rowD),
       disabled: !hasPermission(permissions, SCOPE_WRITE),
     }))
   }
@@ -107,7 +107,9 @@ function ScopeListPage({ scopes, permissions, loading, dispatch }) {
       tooltip: `${t('messages.advanced_search')}`,
       iconProps: { color: 'primary' },
       isFreeAction: true,
-      onClick: () => {},
+      onClick: () => {
+        console.log('===========')
+      },
     })
   }
   if (hasPermission(permissions, SCOPE_READ)) {
@@ -142,7 +144,7 @@ function ScopeListPage({ scopes, permissions, loading, dispatch }) {
         id: 'deleteScope' + rowData.inum,
       },
       tooltip: `${t('Delete Scope')}`,
-      onClick: (event, rowData) => handleScopeDelete(rowData),
+      onClick: (event, aRow) => handleScopeDelete(aRow),
       disabled: !hasPermission(permissions, SCOPE_DELETE),
     }))
   }

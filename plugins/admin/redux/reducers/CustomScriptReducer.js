@@ -23,10 +23,7 @@ const reducerName = 'customScriptReducer'
 export default function customScriptReducer(state = INIT_STATE, action) {
   switch (action.type) {
     case GET_CUSTOM_SCRIPT:
-      return {
-        ...state,
-        loading: true,
-      }
+      return handleLoading()
     case GET_CUSTOM_SCRIPT_RESPONSE:
       if (action.payload.data) {
         return {
@@ -38,10 +35,7 @@ export default function customScriptReducer(state = INIT_STATE, action) {
         return handleDefault()
       }
     case GET_CUSTOM_SCRIPT_BY_TYPE:
-      return {
-        ...state,
-        loading: true,
-      }
+      return handleLoading()
     case GET_CUSTOM_SCRIPT_BY_TYPE_RESPONSE:
       if (action.payload.data) {
         return {
@@ -53,10 +47,7 @@ export default function customScriptReducer(state = INIT_STATE, action) {
         return handleDefault()
       }
     case ADD_CUSTOM_SCRIPT:
-      return {
-        ...state,
-        loading: true,
-      }
+      return handleLoading()
     case ADD_CUSTOM_SCRIPT_RESPONSE:
       if (action.payload.data) {
         return {
@@ -69,10 +60,7 @@ export default function customScriptReducer(state = INIT_STATE, action) {
       }
 
     case EDIT_CUSTOM_SCRIPT:
-      return {
-        ...state,
-        loading: true,
-      }
+      return handleLoading()
     case EDIT_CUSTOM_SCRIPT_RESPONSE:
       if (action.payload.data) {
         return {
@@ -85,10 +73,7 @@ export default function customScriptReducer(state = INIT_STATE, action) {
       }
 
     case DELETE_CUSTOM_SCRIPT:
-      return {
-        ...state,
-        loading: true,
-      }
+      return handleLoading()
     case DELETE_CUSTOM_SCRIPT_RESPONSE:
       if (action.payload.inum) {
         return {
@@ -115,6 +100,13 @@ export default function customScriptReducer(state = INIT_STATE, action) {
       }
     default:
       return handleDefault()
+  }
+
+  function handleLoading() {
+    return {
+      ...state,
+      loading: true,
+    }
   }
 
   function handleDefault() {

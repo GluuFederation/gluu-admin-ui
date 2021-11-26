@@ -5,9 +5,9 @@ import { Badge } from 'reactstrap'
 import { useTranslation } from 'react-i18next'
 
 function AdminUiRole({ roles, loading }) {
+  console.log(roles)
   const { t } = useTranslation()
   const pageSize = localStorage.getItem('paggingSize') || 10
-  roles = roles || []
   const data = [
     {
       name: 'api-admin',

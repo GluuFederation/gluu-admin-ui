@@ -31,7 +31,7 @@ export function* getHealthStatus({ payload }) {
     yield put(getHealthStatusResponse(data))
     yield call(postUserAction, audit)
   } catch (e) {
-
+    console.log('---Error---',e)
     yield put(getHealthStatusResponse(null))
     if (isFourZeroOneError(e)) {
       const jwt = yield select((state) => state.authReducer.userinfo_jwt)

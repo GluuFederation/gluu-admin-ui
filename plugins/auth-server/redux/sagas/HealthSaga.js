@@ -14,6 +14,7 @@ const JansConfigApi = require('jans_config_api')
 
 function* newFunction() {
   const token = yield select((state) => state.authReducer.token.access_token)
+  console.log('-token-', token)
   const issuer = yield select((state) => state.authReducer.issuer)
   const api = new JansConfigApi.AuthServerHealthCheckApi(
     getClient(JansConfigApi, token, issuer),
@@ -22,7 +23,9 @@ function* newFunction() {
 }
 
 export function* getHealthStatus({ payload }) {
+  console.log('-Saga1-')
   const audit = yield* initAudit()
+  console.log('-Saga2-')
   try {
     payload = payload ? payload : { action: {} }
     addAdditionalData(audit, 'FETCH', 'Health', payload)
@@ -31,7 +34,7 @@ export function* getHealthStatus({ payload }) {
     yield put(getHealthStatusResponse(data))
     yield call(postUserAction, audit)
   } catch (e) {
-
+    console.log('---Error---',e)
     yield put(getHealthStatusResponse(null))
     if (isFourZeroOneError(e)) {
       const jwt = yield select((state) => state.authReducer.userinfo_jwt)

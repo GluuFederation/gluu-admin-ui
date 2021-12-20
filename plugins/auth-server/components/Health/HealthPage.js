@@ -20,6 +20,7 @@ function HealthPage({ serverStatus, dbStatus, dispatch }) {
 
   useEffect(() => {
     buildPayload(userAction, 'GET Health Status', options)
+    console.log('-HealthPage-')
     dispatch(getHealthStatus(userAction))
   }, [])
 

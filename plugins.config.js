@@ -9,7 +9,7 @@ const plugins = [
     key: 'auth-server',
     metadataFile: './auth-server/plugin-metadata',
   },
-  {
+  /*{
     title: 'Schema',
     key: 'schema',
     metadataFile: './schema/plugin-metadata',
@@ -18,6 +18,6 @@ const plugins = [
     title: 'AdminUi',
     key: 'admin_ui',
     metadataFile: './admin/plugin-metadata',
-  },
+  },*/
 ]
 export default plugins

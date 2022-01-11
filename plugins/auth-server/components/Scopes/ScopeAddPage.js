@@ -52,7 +52,6 @@ function ScopeAddPage({ scripts, dispatch, attributes }) {
 }
 const mapStateToProps = (state) => {
   return {
-    loading: state.scopeReducer.loading,
     permissions: state.authReducer.permissions,
     scripts: state.initReducer.scripts,
     attributes: state.initReducer.attributes,

@@ -8,7 +8,7 @@ import {
   Accordion,
 } from '../../../../app/components'
 
-function MappingItem({ candidate, key }) {
+function MappingItem({ candidate}) {
   const [item, setItem] = useState(candidate || {})
   function doRemove(perm) {
     const candidate = item
@@ -16,7 +16,7 @@ function MappingItem({ candidate, key }) {
     setItem(candidate)
   }
   return (
-    <div key={key}>
+    <div>
       <FormGroup row />
       <Row>
         <Col sm={12}>

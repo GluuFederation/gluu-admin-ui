@@ -36,18 +36,13 @@ function GluuSingleValueCompleter({
         <Col sm={8}>
           <Typeahead
             emptyLabel=""
-            labelKey={name}
+            labelKey="role"
             id={name}
             data-testid={name}
             name={name}
             defaultSelected={value}
             options={options}
           />
-          <ThemeProvider theme={theme}>
-            <Typography variant="subtitle1">
-              {t('placeholders.typeahead_holder_message')}
-            </Typography>
-          </ThemeProvider>
         </Col>
       </FormGroup>
     </GluuTooltip>

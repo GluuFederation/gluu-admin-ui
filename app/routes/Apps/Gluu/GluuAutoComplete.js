@@ -1,30 +1,20 @@
 import React from 'react'
 import { FormGroup, Col } from '../../../components'
 import { Typeahead } from 'react-bootstrap-typeahead'
-import GluuLabel from '../Gluu/GluuLabel'
+import GluuLabel from './GluuLabel'
 import GluuTooltip from './GluuTooltip'
-import Typography from '@material-ui/core/Typography'
-import { createTheme, ThemeProvider } from '@material-ui/core/styles'
-import { useTranslation } from 'react-i18next'
 
-const theme = createTheme({
-  typography: {
-    subtitle1: {
-      fontSize: 12,
-    },
-  },
-})
-
-function GluuSingleValueCompleter({
+function GluuAutoComplete({
   label,
+  labelKey,
   name,
   value,
+  multiple,
   options,
   required,
   doc_category,
   doc_entry,
 }) {
-  const { t } = useTranslation()
   return (
     <GluuTooltip doc_category={doc_category} doc_entry={doc_entry || name}>
       <FormGroup row>
@@ -36,9 +26,10 @@ function GluuSingleValueCompleter({
         <Col sm={8}>
           <Typeahead
             emptyLabel=""
-            labelKey="role"
+            labelKey={labelKey}
             id={name}
             data-testid={name}
+            multiple={multiple}
             name={name}
             defaultSelected={value}
             options={options}
@@ -49,4 +40,4 @@ function GluuSingleValueCompleter({
   )
 }
 
-export default GluuSingleValueCompleter
+export default GluuAutoComplete

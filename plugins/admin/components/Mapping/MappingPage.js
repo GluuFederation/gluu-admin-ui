@@ -14,6 +14,7 @@ import GluuViewWrapper from '../../../../app/routes/Apps/Gluu/GluuViewWrapper'
 import GluuRibbon from '../../../../app/routes/Apps/Gluu/GluuRibbon'
 import { getMapping } from '../../redux/actions/MappingActions'
 import { getRoles } from '../../redux/actions/ApiRoleActions'
+import { getPermissions } from '../../redux/actions/ApiPermissionActions'
 import MappingItem from './MappingItem'
 import {
   hasPermission,
@@ -21,8 +22,7 @@ import {
   ROLE_READ,
 } from '../../../../app/utils/PermChecker'
 
-function MappingPage({ mapping, apiRoles, permissions, dispatch }) {
-  console.log('======================Roles' + JSON.stringify(apiRoles))
+function MappingPage({ mapping, apiRoles, apiPerms, permissions, dispatch }) {
   const { t } = useTranslation()
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
@@ -31,11 +31,11 @@ function MappingPage({ mapping, apiRoles, permissions, dispatch }) {
   useEffect(() => {
     doFetchList()
     doFetchRoles()
+    doFetchPermissions()
   }, [])
 
   function onAddConfirmed(mappingData) {
     buildPayload(userAction, 'Add new mapping', mappingData)
-    //dispatch(addRole(userAction))
     toggle()
     doFetchList()
   }
@@ -47,6 +47,11 @@ function MappingPage({ mapping, apiRoles, permissions, dispatch }) {
   function doFetchRoles() {
     buildPayload(userAction, 'ROLES', options)
     dispatch(getRoles(userAction))
+  }
+
+  function doFetchPermissions() {
+    buildPayload(userAction, 'PERMISSIONS', options)
+    dispatch(getPermissions(userAction))
   }
 
   function showMappingDialog() {
@@ -79,6 +84,7 @@ function MappingPage({ mapping, apiRoles, permissions, dispatch }) {
         </GluuViewWrapper>
         <MappingAddDialogForm
           roles={apiRoles}
+          permissions={apiPerms}
           handler={toggle}
           modal={modal}
           onAccept={onAddConfirmed}
@@ -92,6 +98,7 @@ const mapStateToProps = (state) => {
   return {
     mapping: state.mappingReducer.items,
     apiRoles: state.apiRoleReducer.items,
+    apiPerms: state.apiPermissionReducer.items,
     permissions: state.authReducer.permissions,
   }
 }

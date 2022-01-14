@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import {
-  FormGroup,
-  Col,
-  Input,
   Button,
   Modal,
   ModalHeader,
@@ -11,9 +8,15 @@ import {
 } from 'reactstrap'
 import { useTranslation } from 'react-i18next'
 import applicationStyle from '../../../../app/routes/Apps/Gluu/styles/applicationstyle'
-import GluuSingleValueCompleter from '../../../../app/routes/Apps/Gluu/GluuSingleValueCompleter'
+import GluuAutoComplete from '../../../../app/routes/Apps/Gluu/GluuAutoComplete'
 const DOC_CATEGORY = 'openid_client'
-const MappingAddDialogForm = ({ handler, modal, onAccept, roles }) => {
+const MappingAddDialogForm = ({
+  handler,
+  modal,
+  onAccept,
+  roles,
+  permissions,
+}) => {
   const [active, setActive] = useState(false)
   const { t } = useTranslation()
 
@@ -44,33 +47,21 @@ const MappingAddDialogForm = ({ handler, modal, onAccept, roles }) => {
         </ModalHeader>
         <ModalBody>Adding new api config role</ModalBody>
         <ModalBody>
-          <GluuSingleValueCompleter
+          <GluuAutoComplete
             name="api_role"
             label="fields.grant_types"
+            labelKey="role"
             options={roles}
             doc_category={DOC_CATEGORY}
-          ></GluuSingleValueCompleter>
-          <FormGroup row>
-            <Col sm={12}>
-              <Input
-                id="api_role"
-                type="text"
-                name="api_role"
-                onKeyUp={handleStatus}
-                defaultValue=""
-              />
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Col sm={12}>
-              <Input
-                id="permissions"
-                type="textarea"
-                name="permissions"
-                defaultValue=""
-              />
-            </Col>
-          </FormGroup>
+          ></GluuAutoComplete>
+          <GluuAutoComplete
+            name="api_permissions"
+            label="fields.grant_types"
+            labelKey="permission"
+            multiple
+            options={permissions}
+            doc_category={DOC_CATEGORY}
+          ></GluuAutoComplete>
         </ModalBody>
         <ModalFooter>
           {active && (

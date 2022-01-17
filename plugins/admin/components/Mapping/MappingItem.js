@@ -8,7 +8,7 @@ import {
   Accordion,
 } from '../../../../app/components'
 
-function MappingItem({ candidate}) {
+function MappingItem({ candidate }) {
   const [item, setItem] = useState(candidate || {})
   function doRemove(perm) {
     const candidate = item

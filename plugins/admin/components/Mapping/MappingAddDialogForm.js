@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { useTranslation } from 'react-i18next'
 import applicationStyle from '../../../../app/routes/Apps/Gluu/styles/applicationstyle'
 import GluuAutoComplete from '../../../../app/routes/Apps/Gluu/GluuAutoComplete'

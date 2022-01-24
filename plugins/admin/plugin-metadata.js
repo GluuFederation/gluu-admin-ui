@@ -5,6 +5,7 @@ import UiRoleListPage from './components/Roles/UiRoleListPage'
 import UiPermListPage from './components/Permissions/UiPermListPage'
 import MappingPage from './components/Mapping/MappingPage'
 import MonthlyActiveUsersPage from './components/MonthlyActiveUsersPage'
+import UserStatPage from './components/Mau/UserStatPage'
 import ScriptListPage from './components/CustomScripts/ScriptListPage'
 import CustomScriptAddPage from './components/CustomScripts/CustomScriptAddPage'
 import CustomScriptEditPage from './components/CustomScripts/CustomScriptEditPage'
@@ -48,6 +49,11 @@ const pluginMetadata = {
         {
           title: 'menus.mau',
           path: PLUGIN_BASE_APTH + '/mau',
+          permission: ACR_READ,
+        },
+        {
+          title: 'menus.mau',
+          path: PLUGIN_BASE_APTH + '/mau1',
           permission: ACR_READ,
         },
         {
@@ -97,6 +103,11 @@ const pluginMetadata = {
     {
       component: MonthlyActiveUsersPage,
       path: PLUGIN_BASE_APTH + '/mau',
+      permission: ACR_READ,
+    },
+    {
+      component: UserStatPage,
+      path: PLUGIN_BASE_APTH + '/mau1',
       permission: ACR_READ,
     },
     {
